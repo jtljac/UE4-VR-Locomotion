@@ -2,9 +2,12 @@
 
 
 #include "VRCameraComponent.h"
-#include "IHeadMountedDisplay.h"
-#include "IXRTrackingSystem.h"
+#include "DatVRLocomotion.h"
+#include "GameFramework/Controller.h"
+#include "Camera/CameraActor.h"
+#include "Engine/Engine.h"
 #include "IXRCamera.h"
+#include "HeadMountedDisplay/Public/IXRTrackingSystem.h"
 #include "Rendering/MotionVectorSimulation.h"
 
 void UVRCameraComponent::GetCameraView(float DeltaTime, FMinimalViewInfo& DesiredView)
