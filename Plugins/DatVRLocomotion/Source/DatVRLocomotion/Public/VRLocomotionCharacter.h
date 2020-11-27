@@ -22,9 +22,13 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-private:
+	UFUNCTION(BlueprintNativeEvent)
 	void doHMDPosition();
-	void setupComponents();
+	virtual void setupComponents();
+
+	// Variables
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "HMD")
+	FVector LastHMDPos;
 
 public:
 	// Components
@@ -49,6 +53,5 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	// Variables
-	FVector LastHMDPos;
+	
 };

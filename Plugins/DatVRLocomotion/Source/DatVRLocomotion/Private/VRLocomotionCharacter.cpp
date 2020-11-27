@@ -55,7 +55,7 @@ void AVRLocomotionCharacter::BeginPlay()
 	GEngine->XRSystem->SetTrackingOrigin(EHMDTrackingOrigin::Floor);
 }
 
-void AVRLocomotionCharacter::doHMDPosition()
+void AVRLocomotionCharacter::doHMDPosition_Implementation()
 {
 	// Get New Location
 	FVector devicePosition;
