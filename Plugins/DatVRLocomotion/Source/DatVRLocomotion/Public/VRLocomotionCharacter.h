@@ -27,7 +27,7 @@ protected:
 	virtual void setupComponents();
 
 	// Variables
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "HMD")
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "HMD")
 	FVector LastHMDPos;
 
 public:
