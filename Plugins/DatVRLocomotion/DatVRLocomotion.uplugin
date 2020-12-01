@@ -1,7 +1,7 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "1.2",
+	"VersionName": "1.3",
 	"FriendlyName": "VRLocomotion",
 	"Description": "A plugin to add a camera with improved VR Controls, and a basic Locomotion character that allows joystick movement",
 	"Category": "VR",

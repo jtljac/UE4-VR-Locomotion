@@ -63,6 +63,9 @@ void AVRLocomotionCharacter::doHMDPosition_Implementation()
 	FVector NewLocation;
 	GEngine->XRSystem->GetCurrentPose(IXRTrackingSystem::HMDDeviceId, deviceRotation, devicePosition);
 
+	// Calculate new capsule half height
+	float capsuleHalfHeight = (devicePosition.Z / 2.f) + 15.f;
+
 	// Adjust the Player to the new location
 	FVector HMDDelta = devicePosition - LastHMDPos;
 	NewLocation = HMDDelta + GetActorLocation();
@@ -72,14 +75,13 @@ void AVRLocomotionCharacter::doHMDPosition_Implementation()
 	LastHMDPos = devicePosition;
 
 	// Adjust the location of the Motion Controllers
-	NewLocation = MCOrigin->GetRelativeLocation() - HMDDelta;
-	MCOrigin->SetRelativeLocation(FVector(NewLocation.X, NewLocation.Y, (NewLocation.Z / -2) - (1.5 * GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight())));
+	MCOrigin->SetRelativeLocation(FVector(-devicePosition.X, -devicePosition.Y, -capsuleHalfHeight));
 
 	// Reset the location of the Camera;
 	HMDOrigin->SetRelativeLocation(FVector(0.f, 0.f, devicePosition.Z - GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight()));
 
 	// Adjust the capsule halfheight to be the height of the player;
-	GetCapsuleComponent()->SetCapsuleHalfHeight((devicePosition.Z / 2.f) + 15.f);
+	GetCapsuleComponent()->SetCapsuleHalfHeight(capsuleHalfHeight);
 }
 
 // Called every frame
