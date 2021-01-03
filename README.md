@@ -6,4 +6,6 @@ This plugin aims to fix that, implementing an extention of the camera component,
 
 The VR locomotion stuff is contained in the DatVRLocomotion Plugin in the plugins folder, this can be packaged for your engine version and used in other projects, or you can use the UE4.25 prepackaged release for windows in the releases section of this repository.
 
+An example of this plugin being used in a VR climbing project can be found [here](https://github.com/jtljac/VRClimb)
+
 Feel free to use this for your projects.
